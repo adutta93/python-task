@@ -16,28 +16,30 @@ list_2 = [
     },
 ]
 
+'''
+Created on 19-Apr-2023
+
+@author: Akash Dutta
+'''
 
 def merge_lists(list_1, list_2) -> list:
-    """
-    Complete this function, by merging the information from list_1 and list_2
-    to create a new list, which has all the information about each student from
-    both lists in one single dict.
-    - Both lists are unsorted
-    - Both lists can have missing values (for ex list_2 has missing id=2)
-    """
+    # Creating an empty dictionary information
     list_3 = {}
   
-     
+    # Loop through both lists add student's information to the new dictionary
     for list_elem in list_1 + list_2:
        if list_elem['id'] not in list_3:
+           # entering a new element in the dictionary
            list_3[list_elem['id']] = list_elem
        else:
+            # the elemenet already exists, updating the element instead
            list_3[list_elem['id']].update(list_elem)    
  
     
  # Convert the dictionary to a list 
     merged_list = list( list_3.values())
     return merged_list
-list_3 = merge_lists(list_1, list_2)
 
-print(list_3)
+# calling the 'merge_lists' function and storing the final value in a variable
+list_3 = merge_lists(list_1, list_2)
+# print(list_3)
